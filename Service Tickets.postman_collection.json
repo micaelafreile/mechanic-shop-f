@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "6cdb5191-00d4-45eb-afcf-8faf64c9b962",
+		"name": "Service Tickets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48311941",
+		"_collection_link": "https://micaelafreile-2206015.postman.co/workspace/micaela-freile's-Workspace~a525d399-f554-4e82-853a-32d5c9c7d143/collection/48311941-6cdb5191-00d4-45eb-afcf-8faf64c9b962?action=share&source=collection_link&creator=48311941"
+	},
+	"item": [
+		{
+			"name": "get by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/serviceTickets/12",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"serviceTickets",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/serviceTickets",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"serviceTickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"VIN\": \"1111111113\",\n    \"service_date\": \"2025-08-22\",\n    \"service_desc\": \"New tires\",\n     \"customer_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/serviceTickets",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"serviceTickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n    {\n        \"VIN\": \"3333333331\",\n        \"service_date\": \"2025-08-01\",\n        \"service_desc\": \"wiper blades\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/serviceTickets/10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"serviceTickets",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/serviceTickets/9",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"serviceTickets",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"remove_ids\": [3,4],\n   \"add_ids\": [1,2]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/serviceTickets/7/edit",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"serviceTickets",
+						"7",
+						"edit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_part",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"inventory_id\": 6,\n  \"quantity\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/serviceTickets/5/add_part",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"serviceTickets",
+						"5",
+						"add_part"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
