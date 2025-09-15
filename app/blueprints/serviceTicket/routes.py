@@ -24,15 +24,22 @@ def get_serviceTickets():
 @serviceTickets_bp.route('/', methods=['POST'])
 def create_serviceTicket():
     try:
-        serviceTicket_data = serviceTicket_schema.load(request.json)
+        serviceTicket_data = request.get_json()  # or schema.load()
     except ValidationError as e:
         return jsonify(e.messages), 400
     
-    newServiceTicket = ServiceTickets(VIN=serviceTicket_data['VIN'], service_date=serviceTicket_data['service_date'], service_desc=serviceTicket_data['service_desc'])
+    service_date = serviceTicket_data.get("service_date")
+    newServiceTicket = ServiceTickets(
+        VIN=serviceTicket_data["VIN"],
+        service_date=service_date,
+        service_desc=serviceTicket_data["service_desc"],
+        customer_id=serviceTicket_data["customer_id"],
+    )
+
     db.session.add(newServiceTicket)
     db.session.commit()
 
-    return serviceTicket_schema.jsonify(newServiceTicket), 201
+    return jsonify({"message": "Service ticket created", "id": newServiceTicket.id}), 201
 
 #	PUT /serviceTickets/<id>: Update a service ticket by ID
 @serviceTickets_bp.route('/<int:id>', methods=['PUT'])
